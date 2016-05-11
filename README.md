@@ -24,7 +24,7 @@ Dữ liệu được mã hóa bằng public key và chỉ được giải mã b�
 
 Khi có sự thay đổi cấu hình ở server, khóa định danh cũng sẽ thay đổi và những người sử dụng SSH cũng được biết về sự thay đổi này
 
-Bắt đầu phiên làm việc, server public key cho client, client sinh ra một session key và mã hóa bằng public key của server và gửi về server. Server giải mã bằng private key và nhận được session key. Session key được sử dụng để trao đổi dữ liệu giữa hai máy. 
+Bắt đầu phiên làm việc, server gửi public key cho client, client sinh ra một session key và mã hóa bằng public key của server và gửi về server. Server giải mã bằng private key và nhận được session key. Session key được sử dụng để trao đổi dữ liệu giữa hai máy. 
 
 #### Mã hóa (Encryption)
 
@@ -38,10 +38,33 @@ Việc chứng thực bằng username/password là một cách thông dụng đ�
 Bên cạnh đó có một vài cách khác : chứng thực RSA, sử dụng ssh-keygen và ssh-agent 
 
 
+## 3. Một số thuật toán sử dụng trong SSH 
+#### Những thuật toán sử dụng cho Public key
 
-## .Tham khảo
+- **RSA**: tính toán không đối xứng, bắt nguồn từ sự phân tích thành thừa số của nhiều số nguyên là tích của 2 số nguyên tố gần bằng nhau
+- **DSA**: thuật toán chữ ký số, dựa vào tính toán riêng rẽ các logarit trong một trường có giới hạn
+- **Diffie-Hellman**: thuật toán thỏa thuận khóa, cũng dựa vào sự rời rạc của bài toán logarit 
+
+#### Những thuật toán sử dụng cho Private key
+
+- **IDEA**: thuật toán mã hóa dữ liệu bí mật quốc tế 
+- **AES**: chuẩn mã tiên tiến 
+- **DES**: chuẩn mã dữ liệu
+- **3DES**: là dạng khác của DES để tăng tính bảo mật bằng việc tăng chiều dài khóa 
+- **RC4**: dùng cho bảo mật dữ liệu RSA, mã hóa nhanh nhưng không bảo mật bằng những thuật toán khác
+- **Blowfish**: từng bước thay thế DES, nhanh hơn DES và IDEA nhưng không bằng RC4
+
+#### Những hàm băm 
+
+- **CRC-32**: hàm băm không mã hoá đối với việc dò tìm lỗi thay đổi dữ liệu
+- **MD5**: Message Digest algorithm number 5, thuật toán băm 128 bit
+- **SHA-1**: Secure Hash Algorithm 1, thuật toán băm 160 bit. SSH-2 sử dụng SHA-1 để băm MAC, SSH-1 sử dụng MD5 
+- **RIPEMD-160**: là một bản khác của MD4,được dùng trong các bản bổ sung của OpenSSH
+
+## 4 .Tham khảo
 
 https://vi.wikipedia.org/wiki/SSH
 
+http://sinhvienit.net/forum/chuyen-de-tim-hieu-ssh.10058.html
 
 
