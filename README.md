@@ -1,6 +1,23 @@
 # SSH
 ghi chép về SSH
 
+## Mục lục 
+
+[1. SSH là gì ?](#what)
+
+[2. Hoạt động](#active)
+
+[3. Một số thuật toán sử dụng trong SSH](#algorithm)
+
+[4. Cài đặt và cấu hình](#install)
+
+[5. Sử dụng](#use)
+
+[6. Bắt gói tin SSH](#wireshark)
+
+[7. Tham khảo](#reference)
+
+<a name=""></a>
 ## 1. SSH là gì ?
 
 **SSH** (Secure shell) là một giao thức mạng để thiết lập kết nối bảo mật. 
@@ -9,6 +26,7 @@ SSH hoạt động ở tầng Application trong mô hình TCP/IP. SSH tương t�
 
 Những chương trình như Telnet, rlogin không sử dụng mã hóa, rất có thể bị lộ dữ liệu trên đường truyền. Sử dụng SSH để đảm bảo bảo mật khi truyền tin trên mạng.
 
+<a name="active"></a>
 ## 2. Hoạt động 
 SSH hoạt động theo 3 bước :
 
@@ -35,9 +53,9 @@ Một số cơ chế mã hóa : 3DES, IDEA và Blowfish
 #### Chứng thực (Authentication ) 
 Việc chứng thực bằng username/password là một cách thông dụng để định danh người sử dụng 
 
-Bên cạnh đó có một vài cách khác : chứng thực RSA, sử dụng ssh-keygen và ssh-agent 
+Bên cạnh đó có một vài cách khác : chứng thực rhosts (kiểm tra máy trạm được liệt kê trong file rhosts), chứng thực RSA (sử dụng ssh-keygen, ssh-agent)
 
-
+<a name="algorithm"></a>
 ## 3. Một số thuật toán sử dụng trong SSH 
 #### Những thuật toán sử dụng cho Public key
 
@@ -61,7 +79,43 @@ Bên cạnh đó có một vài cách khác : chứng thực RSA, sử dụng ss
 - **SHA-1**: Secure Hash Algorithm 1, thuật toán băm 160 bit. SSH-2 sử dụng SHA-1 để băm MAC, SSH-1 sử dụng MD5 
 - **RIPEMD-160**: là một bản khác của MD4,được dùng trong các bản bổ sung của OpenSSH
 
-## 4 .Tham khảo
+<a name="install"></a>
+## 4. Cài đặt và cấu hình 
+
+Trên hệ thống linux đã cài đặt sẵn OpenSSH và cấu hình để xác thực theo password.
+
+Nếu hệ thống chưa có xem thêm [tại đây](https://github.com/locvx1234/SSH/blob/master/ssh_config.md) 
+
+<a name="use"></a>
+## 5. Sử dụng 
+
+Với người dùng linux có thể sử dụng Terminal để ssh tới máy khác :
+
+	# ssh username@ip_server
+
+Với người dùng Windows, ta sử dụng [PuTTY](http://www.putty.org/)
+
+<img src="http://i.imgur.com/QfLTwyL.png">
+
+Nhập `hostname` và `Open`, lưu ý là `Connection type` là `SSH`
+
+<a name="wireshark"></a>
+## 6. Bắt gói tin SSH
+
+Sử dụng Wireshark bắt gói tin
+
+<img src="http://i.imgur.com/2IbhL7x.png">
+
+Một gói tin SSHv2 
+
+<img src="http://i.imgur.com/NaJNJWn.png">
+
+Luồng TCP bị mã hóa
+
+<img src="http://i.imgur.com/Y5q6sgj.png">
+
+<a name="reference"></a>
+## 7. Tham khảo
 
 https://vi.wikipedia.org/wiki/SSH
 

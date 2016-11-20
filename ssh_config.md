@@ -27,8 +27,8 @@ Số port bạn chọn không được trùng với các dịch vụ đang chạ
 
 Sau đó lưu và đóng file và restart lại SSH để cập nhật thay đổi :
 
-	# systemctl restart sshd.service
+	# systemctl restart sshd
 	
-Để đảm bảo an ninh hơn nữa, chúng ta nên sử dụng xác thực dựa trên `key-based`. Xác thực khóa cho phép bạn kết nối với máy chủ mà không sử dụng mật khẩu của user trong hệ thống. Thay vào đó sẽ cần key để sử dụng. Về chi tiết mình sẽ update sau.
+Để đảm bảo an ninh hơn nữa, chúng ta nên sử dụng xác thực dựa trên [key-based](#). Xác thực khóa cho phép bạn kết nối với máy chủ mà không sử dụng mật khẩu của user trong hệ thống. Thay vào đó sẽ cần key để sử dụng. Về chi tiết mình sẽ update sau.
 
 Giao thức SSH cho phép các hoạt động khác như copy file giữa 2 máy theo hình thức mã hóa an toàn. Bạn có thể sử dụng `scp` hay `sftp`.
